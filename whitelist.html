@@ -10,6 +10,15 @@
 			font-family:Helvetica,sans-serif;
 			font-size: 14pt;
 		}
+		hr {
+			background: url(hr.png);
+			border-width: 0px;
+			height: 3px;
+		}
+		.arrow {
+			color: #3F6489;
+			float: left;
+		}
 		.continue {
 			background-color: #E6E6E6;
 			border-color: #D3D3D3;
@@ -20,24 +29,36 @@
 			-moz-border-radius: 6px;			
 		}
 		.explanation {
+			background: -moz-linear-gradient(top, #44698E, #294E73);
 			background-color: #294E73;
-			border-spacing: 8px;						
+			border-spacing: 10px;						
 			border-style: solid;
 			border-width: 0px;
+			box-shadow: 4px 4px 2px #888;
 			color: #FFFFFF;
 			font-size : 12pt;
 			font-weight: bold;
-			-moz-border-radius: 10px;				
+			left: -10px;
+			line-height: 120%;		
+			-moz-border-radius: 10px;
+			position: relative;
 		}
 		.innerPanel {
 			background-color: #EAF1F6;
 			border-style: solid;
 			-moz-border-radius: 10px;
+			border-spacing: 0.5em;
 			border-width:0px;
+			padding-left: 0.5em;
 			width: 100%;
 		}
 		.inputFields {
-			font-size: 14pt;
+			background-color : #EEF7D1;
+			border-radius: 6px;
+			color: #5B6975;
+			font-size: 12pt;
+			height: 2em;
+			letter-spacing: -0.5px;			
 		}
 		.outerBorder {
 			border-color: #002B55;
@@ -47,11 +68,12 @@
 			-moz-border-radius: 16px;
 		}
 		.share {
-			color: #5B6975;
+			color: #4B5965;
 		}
 		.title {
 			color: #003366;
-			font-size:24pt;
+			font-size: 24pt;
+			padding: 0.5em 0em 0em 0.5em;
 		}
 		.userAgreement {
 			font-size: 10pt;
@@ -64,8 +86,8 @@
 
 	<table class="outerBorder">
 		<tr>
-			<td><span class="title">Set up PayPal Identity</span></td>
-			<td style="text-align: right"><img src="close_button.png" alt="Close"></td>
+			<td><div class="title">Set up PayPal Identity</div></td>
+			<td style="text-align: right; vertical-align: top;"><img src="close_button.png" alt="Close"></td>
 		</tr>
 		
 		<tr>
@@ -85,25 +107,35 @@
 						<td><hr style="color=#FF0000;"/></td>
 					</tr>
 					<tr>
-						<td  >
+						<td>
 							<table>
 								<tr>
 									<td style="vertical-align: top;">
 										<table>								
 											<tr>
 												<td>
-													<input class="inputFields" name="website_name" type="text" size="28" value="Website display name">
+													<input class="inputFields" name="website_name" type="text" size="28" value="  Website display name">
+												</td>
+												<td style="vertical-align:middle;">
+													<span class="arrow">
+														&#x25C0;
+													</span>
 												</td>								
 											</tr>
 											<tr>
 												<td>
-													<input class="inputFields" name="website_url" type="text" size="28" value="Website">
-												</td>								
+													<input class="inputFields" name="website_url" type="text" size="28" value="  Website" style="background-color: white;">
+												</td>
+												<td style="vertical-align:middle;">
+													<span class="arrow" style="visibility:hidden;">
+														&#x25C0;
+													</span>
+												</td>																				
 											</tr>
 										</table>										
 									</td>
 									
-									<td>
+									<td style="vertical-align: top;">
 										<table class="explanation">
 											<tr>
 												<td>
@@ -127,7 +159,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td>
+						<td style="font-size:0px;">
 							<hr/>
 						</td>
 					</tr>
