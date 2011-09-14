@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
  
 <head>
@@ -67,15 +67,12 @@
 			letter-spacing: -0.5px;			
 		}
 		.outerBorder {
-			border-color: #002B55;
-			border-style: solid;
 			border-spacing: 8px;
-			border-width: 10px;
+			border-width: 0px;
 			height: 502px;
-			-moz-border-radius: 16px;
 			width: 486px;
 		}
-		.share {
+		td#secondHeader {
 			color: #4B5965;
 		}
 		.title {
@@ -91,203 +88,301 @@
 </head>
  
 <body>
-
-	<table class="outerBorder">
-		<tr>
-			<td><div class="title">Set up PayPal Identity</div></td>
-			<td style="text-align: right; vertical-align: top;"><img src="X.png" alt="Close"></td>
-		</tr>
-		
-		<tr>
-			<td style="height: 1em;"></td>
-		</tr>
-		
-		<tr>
-			<td colspan="2">
-
-				<table class="innerPanel">
-					<tr>
-						<td class="share" style="padding-top:1em;">
-							Share a few details
-						</td>
-					</tr>
-					<tr>
-						<td><hr style="color=#FF0000;"/></td>
-					</tr>
-					<tr>
-						<td>
-							<table>
-								<tr>
-									<td style="vertical-align: top;">
-										<table>								
-											<tr>
-												<td style="padding-bottom: 0.5em;">
-													<input id="websiteNameInput" class="inputFields" name="website_name" type="text" size="24" value="Website display name">
-												</td>
-												<td style="vertical-align:middle;">
-													<span id="nameArrow" class="arrow">
-														&#x25C0;
-													</span>
-												</td>								
-											</tr>
-											<tr>
-												<td style="padding-top: 0.5em;">
-													<input id="websiteInput" class="inputFields" name="website_url" type="text" size="24" value="Website">
-												</td>
-												<td style="vertical-align:middle;">
-													<span id="urlArrow" class="arrow" style="visibility:hidden;">
-														&#x25C0;
-													</span>
-												</td>																				
-											</tr>
-										</table>										
-									</td>
-									
-									<td id="explanationHolder" style="vertical-align: top;">
-										<table id="explanationTable" class="explanation">
-											<tr>
-												<td>
-													<div id="explanationText">
-													</div>
-												</td>
-											</tr>
-										</table>
-									</td>
-								</tr>
-							</table>
-					
-						</td>
-					</tr>
-					<tr>
-						<td style="height:3em;"></td>
-					</tr>
-					
-					<tr>
-						<td>
-							<span class="userAgreement">By clicking Continue below, you agree to our <a href="#">User Agreement</a></span>
-						</td>
-					</tr>
-					<tr>
-						<td style="font-size:0px;">
-							<hr/>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<table width="100%;">
-								<tr>
-									<td>
-										<table class="continue">
-											<tr>
-												<td style="padding: 0.5em 2em 0.5em 2em;">
-													Continue
-												</td>
-											</tr>	
-										</table>
-										<div style="padding-top:12px;">
-											<a href="#" style="padding-left:1em;font-size:12pt;">Cancel</a>
-										</div>
-									</td>
-									<td style="text-align: right"><img src="paypal_logo.png" alt="PayPal logo"/></td>										
-								</tr>
-							</table>
-						</td>
-					</tr>
-				</table>
-			</td>
-		</tr>		
-	</table>
-
+	<form>
+		<table class="outerBorder">
+			<tr>
+				<td><div class="title">Set up PayPal Identity</div></td>
+			</tr>
+			
+			<tr>
+				<td style="height: 1em;"></td>
+			</tr>
+			
+			<tr>
+				<td colspan="2">
+	
+					<table class="innerPanel">
+						<tr>
+							<td id="secondHeader" style="padding-top:1em;">
+								Share a few details
+							</td>
+						</tr>
+						<tr>
+							<td id="topHr"><hr/></td>
+						</tr>
+						<tr id="entryFields">
+							<td>
+								<table>
+									<tr>
+										<td style="vertical-align: top;">
+											<table>								
+												<tr>
+													<td style="padding-bottom: 0.5em;">
+														<input id="websiteNameInput" class="inputFields" name="website_name" type="text" size="24" value="Website display name" tabindex="1">
+													</td>
+													<td style="vertical-align:middle;">
+														<span id="nameArrow" class="arrow">
+															&#x25C0;
+														</span>
+													</td>								
+												</tr>
+												<tr>
+													<td style="padding-top: 0.5em;">
+														<input id="websiteInput" class="inputFields" name="website_url" type="text" size="24" value="Website" tabindex="2">
+													</td>
+													<td style="vertical-align:middle;">
+														<span id="urlArrow" class="arrow" style="visibility:hidden;">
+															&#x25C0;
+														</span>
+													</td>																				
+												</tr>
+											</table>										
+										</td>
+										
+										<td id="explanationHolder" style="vertical-align: top;">
+											<table id="explanationTable" class="explanation">
+												<tr>
+													<td>
+														<div id="explanationText">
+														</div>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+						
+							</td>
+						</tr>
+						<tr>
+							<td style="height:3em;"></td>
+						</tr>
+						
+						<tr>
+							<td>
+								<span class="userAgreement">By clicking Continue below, you agree to our <a href="#">User Agreement</a></span>
+							</td>
+						</tr>
+						<tr>
+							<td style="font-size:0px;">
+								<hr/>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<table width="100%;">
+									<tr>
+										<td id="continueAndCancel">
+											<a id="continueLink" href="javascript:buttonPressed();" tabindex="3">
+												<table id="continueButton" class="continue">
+													<tr>
+														<td id="continueText" style="padding: 0.5em 2em 0.5em 2em;">
+															Continue
+														</td>
+													</tr>	
+												</table>
+											</a>
+											<div id="cancel"style="padding-top:12px;">
+												<a href="#" style="padding-left:1em;font-size:12pt;" tabindex="4">Cancel</a>
+											</div>
+										</td>
+										<td style="text-align: right"><img src="paypal_logo.png" alt="PayPal logo"/></td>										
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>		
+		</table>
+	</form>
+	
+	
 	<!-- jQuery --> 
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
  
  	<script type="text/javascript">
-	 	
-	 	$(document).ready(function() 
-	 	{
-	 		
-	 		var websiteNameInput = $( "#websiteNameInput" ),
-	 			websiteInput = $( "#websiteInput" );
-	 			validColor = "#EEF7D1",
+
+ 		$(document).ready(function () {
+
+ 			var websiteNameInput = $("#websiteNameInput"),
+	 			websiteInput = $("#websiteInput");
+ 				validColor = "#EEF7D1",
 	 			invalidColor = "#FF8787",
-	 			nameArrow = $( "#nameArrow" ),
-	 			urlArrow = $( "#urlArrow" ),
-	 			explanationText = $( "#explanationText" ),	 			
-	 			explanationTable = $("#explanationTable" ),
-	 			explanationHolder = $("#explanationHolder" ),
-	 			websiteDisplayNameText = "Website display name",
-	 			websiteText = "Website";
-	 		
-	 		
-			// Display name	 			 
- 			websiteNameInput.focusin( function() {
-  				explanationHolder.css( "padding-top", "0em" ); 				
- 				explanationTable.css( "visibility", "visible" );
- 				nameArrow.css( "visibility", "visible" );
- 				explanationText.html( "This display name will appear whenever we refer to you.  Please choose something appropriate and ideally less than 28 characters." );
+	 			nameArrow = $("#nameArrow"),
+	 			urlArrow = $("#urlArrow"),
+	 			explanationText = $("#explanationText"),
+	 			explanationTable = $("#explanationTable"),
+	 			explanationHolder = $("#explanationHolder"),
+	 			websiteText = "Website",
+	 			continueButton = $("#continueButton"),
+	 			continueText = $("#continueText"),
+	 			continueLink = $("#continueLink" ),
+	 			mode = "setup",
+	 			websiteDisplayNameText = "Website display name";
+
+
+ 			// ----- Display name -----	
+
+ 			websiteNameInput.val(websiteDisplayNameText);
+
+ 			websiteNameInput.focusin(function () {
+ 				explanationHolder.css("padding-top", "0em");
+ 				explanationText.html("This display name will appear whenever we refer to you.  Please choose something appropriate and ideally less than 28 characters.");
+ 				explanationTable.css("visibility", "visible");
+ 				nameArrow.css("visibility", "visible");
  			});
 
- 			websiteNameInput.focusout( function() {
- 				explanationTable.css( "visibility", "hidden" );
- 				nameArrow.css( "visibility", "hidden" );
+ 			websiteNameInput.focusout(function () {
+ 				explanationTable.css("visibility", "hidden");
+ 				nameArrow.css("visibility", "hidden");
+ 			});
+
+ 			websiteNameInput.keydown(function (event) {				
+ 				if( event.keyCode == 16 )  // RKC: An odd one.  Firefox Windows sends this "ctrl" button in for no reason I can discern.
+ 					return;
+
+ 				if( event.keyCode == 9 || event.keyCode == 13 ) {
+					 websiteInput.focus();
+					 event.preventDefault();
+					 return;
+ 				}
+
+ 				if( websiteNameInput.val() == websiteDisplayNameText )
+ 					websiteNameInput.val( "" );
+
+ 				websiteNameInput.css("color", "black");
  			});
  			
- 			websiteNameInput.keydown(function(event) {
- 				if( websiteNameInput.val() == websiteDisplayNameText ) {
- 					websiteNameInput.val( "" ); 		
- 					websiteNameInput.css( "color", "black" );
-				}			
+ 			websiteNameInput.keyup(function() {
+				setStateForButton( buttonShouldBeActive() );
  			});
 
- 			websiteNameInput.blur( function(){
+ 			websiteNameInput.blur(function () {
  				if( websiteNameInput.val().length == 0 ) {
  					websiteNameInput.val( websiteDisplayNameText );
  					websiteNameInput.css( "color", "#999999" );
-				} 					
- 			});	
+ 				}
+ 			});
+
+ 			websiteNameInput.focus();
+
+
+ 			// ----- URL -----
  			
-			websiteNameInput.focus();
-			 			
-
-			// URL
- 			websiteInput.focusin( function() {
- 				explanationHolder.css( "padding-top", "2em" );
- 				explanationTable.css( "visibility", "visible" );
- 				urlArrow.css( "visibility", "visible" );
- 				explanationText.html( "The URL to your website. <br/><br/><i>Example</i> mystore.com" );
+ 			websiteInput.focusin(function () {
+ 				explanationHolder.css("padding-top", "2em");
+ 				explanationTable.css("visibility", "visible");
+ 				urlArrow.css("visibility", "visible");
+ 				explanationText.html( "The URL to your website. <br/><br/><u>Examples</u><br/> mystore.com<br/>https://securestore.com" );
  			});
 
- 			websiteInput.focusout( function() {
- 				explanationTable.css( "visibility", "hidden" );
- 				urlArrow.css( "visibility", "hidden" );
+ 			websiteInput.focus(function () {
+ 				this.selectionEnd = -1;
  			});
-							
-			websiteInput.keydown(function(event) {
-				if( websiteInput.val() == websiteText )
- 					websiteInput.val( "" ); 		
- 				websiteInput.css( "color", "black" );
+
+ 			websiteInput.focusout(function () {
+ 				explanationTable.css("visibility", "hidden");
+ 				urlArrow.css("visibility", "hidden");
+ 			});
+
+ 			websiteInput.keydown(function (event) {
+ 				if( event.keyCode == 9 ) {
+ 					event.preventDefault();
+ 					continueLink.focus(); 					
+ 					return;
+ 				}
+ 				
+ 				if( event.keyCode == 13 ) {
+ 					if( buttonShouldBeActive() ) {
+ 						buttonPressed();
+ 						event.preventDefault();
+ 						return;
+ 					}
+ 					else if( linkIsValid(websiteInput.val()) ) {
+ 						websiteNameInput.focus();
+ 						event.preventDefault();
+ 						return;
+ 					}
+ 				}  				
+ 				if (websiteInput.val() == websiteText)
+ 					websiteInput.val("");
+ 				websiteInput.css("color", "black");
   			});
+
+ 			websiteInput.keyup(function() {
+ 				var link = websiteInput.val();
+ 				if( link == websiteText || linkIsValid(link) )
+ 					websiteInput.css("background-color", validColor);
+ 				else
+ 					websiteInput.css("background-color", invalidColor);
+ 					 				
+				setStateForButton( buttonShouldBeActive() );
+ 			});
+
+ 			websiteInput.blur(function () {
+ 				if (websiteInput.val().length == 0) {
+ 					websiteInput.val(websiteText);
+ 					websiteInput.css("color", "#999999");
+ 					websiteInput.css("background-color", validColor);
+ 				}
+ 			});
+ 			
+ 			function linkIsValid( s ) {
+ 				return /.+\..+/.test( s );				
+ 			}
+ 			
+ 			function buttonShouldBeActive() {
+ 				if( mode == "done" )
+ 					return true;
+
+				var name = websiteNameInput.val();
+				var validName = name.length > 0 && name != websiteDisplayNameText;
+				var validUrl = linkIsValid( websiteInput.val() );
 			
-			websiteInput.keyup(function(event) {
-				
-				var linkDetector = /^(((http|https|ftp):\/\/)?([[a-zA-Z0-9]\-\.])+(\.)([[a-zA-Z0-9]]){2,4}([[a-zA-Z0-9]\/+=%&_\.~?\-]*))*$/g;
-							
-				if( websiteInput.val() == websiteText || linkDetector.test(websiteInput.val()) )
-					websiteInput.css( "background-color", validColor );
-				else	
-					websiteInput.css( "background-color", invalidColor );
-  			});
-  			
-			websiteInput.blur( function(){
- 				if( websiteInput.val().length == 0 ) {
- 					websiteInput.val( websiteText );
- 					websiteInput.css( "color", "#999999" );
- 					websiteInput.css( "background-color", validColor );
-				} 					
- 			});	
+				return validName && validUrl;
+ 			}
+ 		});
+ 		
+ 		var buttonActive = false;
 
-		});
- 			
+		function setStateForButton( state ) {
+			buttonActive = state;
+			
+			if( buttonActive ) {
+				continueButton.css( "border-color", "#F39033" );
+				continueButton.css( "background-color", "#FCB92A" );
+				continueButton.css( "background", "-moz-linear-gradient(top, #FEEBCE, #FBB11B)" );
+				
+				continueText.css( "color", "black" );	
+			}
+			else {
+				continueButton.css( "border-color", "#D3D3D3" );
+				continueButton.css( "background-color", "#E6E6E6" );
+				continueButton.css( "background", "" );
+				
+				continueText.css( "color", "#A3A3A3" );
+			}
+		}
+		
+ 		function buttonPressed() {
+ 			if( !buttonActive )
+ 				return;
+ 				
+ 			$("#title").html( "Set up is now complete" );
+ 			$("#secondHeader").html( 	
+ 				"Thanks for using PayPal Access.  We appreciate you choosing us and " +
+ 				"look forward to serving you.<br/><br?If you need to change anything " +
+ 				"in the future, click on the configuration button." );
+ 			$("#cancel").hide();
+ 			$(".userAgreement").hide();
+ 			$("#continueText").html( "Close" );
+ 			$("#entryFields").hide();
+ 			$("#topHr").hide();
+ 			setStateForButton( true );
+ 		} 			
+
+ 
  	</script>
 
 </body>
