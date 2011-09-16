@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+﻿<!DOCTYPE HTML PUBLIC "-/equest/W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
  
 <head>
@@ -63,6 +63,9 @@
 			height: 2em;
 			letter-spacing: -0.5px;
 		}
+		a:visited#navLink {
+			color: blue;;
+		}
 		.outerBorder {
 			border-spacing: 8px;
 			border-width: 0px;
@@ -77,7 +80,7 @@
 			font-size: 24pt;
 			padding: 0.5em 0em 1em 0.5em;
 		}
-		.userAgreement {
+		span#userAgreement {
 			font-size: 8pt;
 			color: #848587;
 			padding-top: 1em;
@@ -87,7 +90,7 @@
  
 <body>
 
-	<div id="title">Set up PayPal Access</div>
+	<div id="title"></div>
 	
 	<table class="outerBorder">
 		<tr>
@@ -96,7 +99,6 @@
 				<table class="innerPanel">
 					<tr>
 						<td id="secondHeader" style="padding-top:1em;">
-							Share a few details
 						</td>
 					</tr>
 					<tr>
@@ -123,7 +125,7 @@
 													<input id="websiteInput" class="inputFields" name="website_url" type="text" size="22" value="Website">
 												</td>
 												<td style="vertical-align:middle;">
-													<span id="urlArrow" class="arrow" style="visibility:hidden; color:#41668C;">
+													<span id="urlArrow" class="arrow" style="visibility:hidden; color:#33587D;">
 														&#x25C0;
 													</span>
 												</td>																				
@@ -145,7 +147,7 @@
 					</tr>
 					<tr>
 						<td>
-							<span class="userAgreement">By clicking Continue below, you agree to our <a href="#">User Agreement</a></span>
+							<span id="userAgreement" class="request">By clicking Continue below, you agree to our <a href="#">User Agreement</a></span>
 						</td>
 					</tr>
 					<tr id="dataVerification" style="display:none;">
@@ -170,10 +172,6 @@
 									<td id="websiteVerification">											
 									</td>
 								</tr>
-								<tr>
-									<td></td>
-									<td style="padding-top:1em;"><a href="javascript:backButtonPressed();">Back</a></td>
-								</tr>
 							</table>
 						</td>							
 					</tr>
@@ -186,19 +184,19 @@
 						<td>
 							<table width="100%;">
 								<tr>
-									<td onclick="javascript:buttonPressed();" style="cursor:pointer;">
-										<table id="continueButton" class="continue">
+									<td id"="buttonBackground" onclick="javascript:requestWhitelisting();" style="cursor:pointer;">
+										<table id="theButton" class="continue">
 											<tr>
 												<td style="padding: 0.5em 2em 0.5em 2em;">
-													<a id="continueLink" style="text-decoration: none; color:#A3A3A3;" href="javascript:buttonPressed();">Continue</a>
+													<a id="buttonLink" style="text-decoration: none; color:#A3A3A3;" href="javascript:requestWhitelisting();">Continue</a>
 												</td>
 											</tr>	
 										</table>
-										<div id="cancel"style="padding-top:12px;">
-											<a href="#" style="padding-left:1em;font-size:12pt;">Cancel</a>
+										<div style="padding-top:12px;" class="request">
+											<a href="#" id="navLink" style="padding-left:1em;font-size:12pt;">Cancel</a>
 										</div>
 									</td>
-									<td style="text-align: right"><a href=""><img src="paypal_logo.png" alt="PayPal logo"/></a></td>										
+									<td style="text-align: right"><a href="http://paypal.com"><img src="paypal_logo.png" alt="PayPal logo"/></a></td>										
 								</tr>
 							</table>
 						</td>
@@ -216,20 +214,19 @@
 
  		$(document).ready(function () {
 
- 			var websiteNameInput = $("#websiteNameInput"),
-	 			websiteInput = $("#websiteInput");
- 				validColor = "#EEF7D1",
-	 			invalidColor = "#FF8787",
-	 			nameArrow = $("#nameArrow"),
-	 			urlArrow = $("#urlArrow"),
-	 			explanationText = $("#explanationText"),
-	 			explanationBackground = $("#explanationBackground"),
-	 			explanationSpacer = $("#explanationSpacer"),
-	 			websiteText = "Website",
-	 			continueButton = $("#continueButton"),
-	 			continueLink = $("#continueLink" ),
-	 			mode = "setup",
-	 			websiteDisplayNameText = "Website display name";
+ 			var websiteNameInput 		= $("#websiteNameInput"),
+	 			websiteInput 			= $("#websiteInput");
+ 				validColor 				= "#EEF7D1",
+	 			invalidColor 			= "#FF8787",
+	 			nameArrow 				= $("#nameArrow"),
+	 			urlArrow 				= $("#urlArrow"),
+	 			explanationText 		= $("#explanationText"),
+	 			explanationBackground 	= $("#explanationBackground"),
+	 			explanationSpacer 		= $("#explanationSpacer"),
+	 			websiteText 			= "Website",
+	 			theButton 				= $("#theButton"),
+	 			buttonLink 				= $("#buttonLink" ),
+	 			websiteDisplayNameText 	= "Website display name";
 
 
  			// ----- Display name -----	
@@ -248,8 +245,8 @@
  				nameArrow.css("visibility", "hidden");
  			});
 
- 			websiteNameInput.keydown(function (event) {				
- 				if( event.keyCode == 16 )  // RKC: An odd one.  Firefox Windows sends this "ctrl" button in for no reason I can discern.
+ 			websiteNameInput.keydown(function (event) {	
+  				if( event.keyCode == 16 )  // RKC: An odd one.  Firefox Windows sends this "ctrl" button in for no reason I can discern.
  					return;
 
  				if( event.keyCode == 9 || event.keyCode == 13 ) {
@@ -284,7 +281,7 @@
  				explanationSpacer.css("padding-top", "1em");
  				explanationBackground.css("visibility", "visible");
  				urlArrow.css("visibility", "visible");
- 				explanationText.html( "The URL to your website. <br/><br/><u>Examples</u><br/> mystore.com<br/>https://store.com" );
+ 				explanationText.html( "Enter your website URL (e.g. <i>domain.com<i>)" );
  			});
 
  			websiteInput.focus(function () {
@@ -299,13 +296,13 @@
  			websiteInput.keydown(function (event) {
  				if( event.keyCode == 9 ) {
  					event.preventDefault();
- 					continueLink.focus(); 					
+ 					buttonLink.focus(); 					
  					return;
  				}
  				
  				if( event.keyCode == 13 ) {
  					if( buttonShouldBeActive() ) {
- 						buttonPressed();
+ 						requestWhitelisting();
  						event.preventDefault();
  						return;
  					}
@@ -343,7 +340,7 @@
  			}
  			
  			function buttonShouldBeActive() {
- 				if( mode == "done" )
+ 				if( mode == "complete" )
  					return true;
 
 				var name = websiteNameInput.val();
@@ -354,45 +351,117 @@
  			}
  		});
  		
- 		var buttonActive = false;
+ 		var buttonActive 			= false,
+ 			mode 					= "request",
+ 			requestTitle 			= "Set up PayPal Access",
+ 			completeTitle			= "Set up is now complete",
+ 			requestSecondHeader 	= "Share a few details",
+ 			completeSecondHeader 	= "Thanks for using PayPal Access!";
+ 			
+ 		$( "#title" ).html( requestTitle );
+ 		$( "#secondHeader" ).html( requestSecondHeader );
+
 
 		function setStateForButton( state ) {
 			buttonActive = state;
 			
 			if( buttonActive ) {
-				continueButton.css( "border-color", "#F39033" );
-				continueButton.css( "background-color", "#FCB92A" );
-				continueButton.css( "background", "-moz-linear-gradient(top, #FEEBCE, #FBB11B)" );
+				theButton.css( "border-color", "#F39033" );
+				theButton.css( "background-color", "#FCB92A" );
+				theButton.css( "background", "-moz-linear-gradient(top, #FEEBCE, #FBB11B)" );
 				
-				continueLink.css( "color", "black" );	
+				buttonLink.css( "color", "black" );	
 			}
 			else {
-				continueButton.css( "border-color", "#D3D3D3" );
-				continueButton.css( "background-color", "#E6E6E6" );
-				continueButton.css( "background", "" );
+				theButton.css( "border-color", "#D3D3D3" );
+				theButton.css( "background-color", "#E6E6E6" );
+				theButton.css( "background", "" );
 				
-				continueLink.css( "color", "#A3A3A3" );
+				buttonLink.css( "color", "#A3A3A3" );
 			}
 		}
 		
- 		function buttonPressed() {
+		function handleWhitelistResponse( jqXHR, textStatus ) {
+			alert( textStatus );
+		}
+	
+		function handleUrlTestResponse( jqXHR, textStatus ) {
+			alert( textStatus );			
+		}
+		
+		function requestWhitelisting() {
+			
+			jQuery.ajax( $("#websiteInput").val(), { complete : handleUrlTestResponse } );
+			
+			/*
+			var body = { 
+		        description : "Identity Services Profile Create Request",
+        		type : "object",
+        		properties : {
+        			identityType : "merchant",
+        			url : $("#websiteInput").val(),
+        			attributes : {
+        				items : {
+        					properties : {
+        						name : $("#websiteNameInput").val() 
+        					}
+    					}
+    				}
+        		} 			
+        	} 
+			
+			jQuery.ajax( "https://identity.arathika.com/idaas/resources/profile", { 
+					type : "POST",
+					contentType : "application/json",
+					accept :"application/json",
+					data : JSON.stringify(body),
+					dataType : "jsonp",
+					complete : handleWhitelistResponse	
+			});
+			*/
+		}
+		
+ 		function toggleScreen() {
  			if( !buttonActive )
  				return;
- 				
- 			$("#title").html( "Set up is now complete" );
- 			$("#secondHeader").html( "Thanks for using PayPal Access!" )
- 			//  We appreciate you choosing us and " +
- 			//	"look forward to serving you.<br/><br?If you need to change anything " +
- 			//	"in the future, click on the configuration button." );
+			
+			var navLink = $( "#navLink" ),
+ 				buttonLink = $("#buttonLink");		
  			
- 			$("#cancel").hide();
- 			$(".userAgreement").hide();
- 			$("#continueLink").html( "Close" );
- 			$("#entryFields").hide();
- 			$("#dataVerification" ).css( "display", "block" );
- 			$("#displayNameVerification").html( $("#websiteNameInput").val() );
- 			$("#websiteVerification").html( $("#websiteNameInput").val() );
- 			setStateForButton( true );
+ 			if( mode == "request" ) {
+	 			$("#title").html( completeTitle );
+ 				$("#secondHeader").html( completeSecondHeader );
+	 			navLink.html( "Back" );
+	 			navLink.attr( "href", "javascript:toggleState();")
+	 			$("#userAgreement").hide();
+	 			$("#entryFields").hide();
+ 				$("#dataVerification" ).css( "display", "block" );
+ 				$("#displayNameVerification").html( $("#websiteNameInput").val() );
+ 				$("#websiteVerification").html( $("#websiteInput").val() );
+ 				buttonLink.html( "Close" );
+ 				buttonLink.attr( "href", "#" );
+ 				$("#buttonBackground").attr( "href", "#" );
+ 				setStateForButton( true );
+ 				
+ 				mode = "complete";	
+ 			}
+ 			else {
+	 			$("#title").html( completeTitle );
+ 				$("#secondHeader").html( requestSecondHeader )
+	 			navLink.html( "Cancel" );
+	 			navLink.attr( "href", "#")
+	 			$("#userAgreement").show();
+	 			$("#entryFields").show();
+ 				$("#dataVerification" ).css( "display", "none" );
+ 				buttonLink.html( "Continue" );
+ 				buttonLink.attr( "href", "javascript:requestWhitelisting();" );
+ 				$("#buttonBackground").attr( "href", "javascript:requestWhitelisting();" );
+ 				setStateForButton( true );
+ 				
+ 				mode = "request";
+ 			}		
+ 			
+
  		} 			
 
  
