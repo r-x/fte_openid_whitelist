@@ -26,26 +26,7 @@ else
   else
   
       request_body = %(
-        {
-            "description" : "Identity Services Profile Create Request",
-            "type" : "object",
-            "properties" : 
-            {
-                "identityType" : "merchant",
-                "url" : \"#{url}\",
-                "attributes" : 
-                {
-                    "items" : 
-                    { 
-                       "type" : "object",
-                       "properties" : 
-                       {
-                            "name" : \"#{name}\",
-                       }
-                    }
-                }
-            }
-        }
+{"accountId":"merchant1","identityType":"merchant","url":"http://merchant1.com","emails":["admin@merchant1.com"],"addresses":[{"street1":"1234 street1","street2":"Suite #250","city":"San Jose","state":"CA","zip":"12345"}],"attributes":[{"name":"displayName","value":["Merchant1"]},{"name":"attribute2","value":["attribute2"]}],"correlationId":"22aa0667df7e6b3d410c612aebbc58b17e90569a","revision":1.0}
       )
     
       puts request_body

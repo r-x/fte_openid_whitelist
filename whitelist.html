@@ -382,43 +382,19 @@
 		}
 		
 		function handleWhitelistResponse( jqXHR, textStatus ) {
-			alert( textStatus );
+			var result	= jqXHR.responseText.split(":")[0];
+			var message	= jqXHR.responseText.split(":")[1];
+			
+			if( result == "SUCCESS" )
+				toggleScreen();
+			else
+				alert( message );
 		}
 	
-		function handleUrlTestResponse( jqXHR, textStatus ) {
-			alert( textStatus );			
-		}
-		
 		function requestWhitelisting() {
+			whitelistUrl = "http://corell.arathika.com/fte_openid_whitelist/proxy.cgi?name=" + $("#websiteNameInput").val() + "&url=" + $("#websiteInput").val();
 			
-			jQuery.ajax( $("#websiteInput").val(), { complete : handleUrlTestResponse } );
-			
-			/*
-			var body = { 
-		        description : "Identity Services Profile Create Request",
-        		type : "object",
-        		properties : {
-        			identityType : "merchant",
-        			url : $("#websiteInput").val(),
-        			attributes : {
-        				items : {
-        					properties : {
-        						name : $("#websiteNameInput").val() 
-        					}
-    					}
-    				}
-        		} 			
-        	} 
-			
-			jQuery.ajax( "https://identity.arathika.com/idaas/resources/profile", { 
-					type : "POST",
-					contentType : "application/json",
-					accept :"application/json",
-					data : JSON.stringify(body),
-					dataType : "jsonp",
-					complete : handleWhitelistResponse	
-			});
-			*/
+			jQuery.ajax({ url: whitelistUrl, complete : handleWhitelistResponse });
 		}
 		
  		function toggleScreen() {
@@ -459,9 +435,7 @@
  				setStateForButton( true );
  				
  				mode = "request";
- 			}		
- 			
-
+ 			}
  		} 			
 
  
